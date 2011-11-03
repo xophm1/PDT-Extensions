@@ -17,7 +17,7 @@
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'TRACKER_ID']);
+  _gaq.push(['_setAccount', 'UA-24226605-1']);
   _gaq.push(['_trackPageview']);
 
   (function() {
@@ -27,7 +27,76 @@
   })();
 
 </script>
-<script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'41a167f1-9ddb-4d54-a742-c665de64954c'});</script>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+    (function() {
+        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+        t.parentNode.insertBefore(s, t);
+    })();
+/* ]]> */
+</script>
+
+<style type="text/css">
+
+	.flattr {	
+		float: left;
+		margin-right: 20px;
+	
+	}
+	
+	.google {	
+		float: left	;
+		width: 85px;
+		padding-top: 5px;	
+	}
+	
+	.twitter {
+		float: left;
+		width: 100px;
+		padding-top: 5px;
+	}
+		
+	#buttonwrapper {
+		padding-top: 35px;
+	}
+	
+	#header {
+	
+	}
+	
+	#tabs {	
+ 		padding-left: 20px;
+    	padding-right: 20px;
+	}
+	
+	#updatesite {
+	
+ 		margin-left: 130px;
+    	margin-top: 30px;
+    	width: 500px;	
+	}
+	
+	#url {
+	 	margin-left: 140px;
+ 		font-size: 24px;
+    	margin-bottom: 20px;	 
+	}
+	
+	#menubuttons {
+	
+ float: left;
+    margin-right: 220px;
+	}
+	
+	#socialbuttons {
+	padding-top: 13px;
+	}
+
+</style>
 </head>
 <body>
 <p>
@@ -36,9 +105,16 @@
 <div id="content">
 	<div id="header_clear_fix">		
 		<div id="header_eclipse">
-			<h1 class="eclipseheader">
-				PHP Development Tools (PDT) Extensions
-			</h1>
+			<div id="header">
+				<h1 class="eclipseheader" style="float: left; margin-right: 20px;">
+					PHP Development Tools (PDT) Extensions
+				</h1>
+			</div>
+			
+			<div id="">
+			</div>
+			<div style="clear: both;"></div>
+
 
 		</div>
 	</div>
@@ -48,12 +124,41 @@
 		
 		<div id="tabs">
 			
+			<div id="menubuttons">
 			<ul id="mainul">
 				<li class="ui-corner-bottom"><a href="#tabs-1">About</a></li>
 				<li class="ui-corner-bottom"><a href="#tabs-2">Installation</a></li>
 				<li class="ui-corner-bottom"><a href="#tabs-3">Usage / Screenshots</a></li>
 				<li class="ui-corner-bottom"><a href="#tabs-4">Issues</a></li>
 			</ul>
+			</div>
+			
+			<div id="socialbuttons">
+				<div class="flattr">
+					<a class="FlattrButton" style="display:none;" href="http://pulse00.github.com/PDT-Extensions/"></a>
+					<noscript><a href="http://flattr.com/thing/429134/PDT-Extensions" target="_blank">
+					<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
+				</div>
+				<div class="google">
+					<!-- Place this tag where you want the +1 button to render -->
+					<g:plusone></g:plusone>
+					
+					<!-- Place this render call where appropriate -->
+					<script type="text/javascript">
+					  (function() {
+					    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+					    po.src = 'https://apis.google.com/js/plusone.js';
+					    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+					  })();
+					</script>
+				</div>
+				
+				<div class="twitter">				
+					<a href="https://twitter.com/pulse00" class="twitter-follow-button" data-show-count="false">Follow @pulse00</a>
+					<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>				
+				</div>
+			</div>
+			<div style="clear: both;"></div>
 			
 			<div id="tabs-1" class="tabdiv">
 				<p>The PDT Extensions Plugin provides some additional (OOP) features for the Eclipse <a href="http://www.eclipse.org/projects/project.php?id=tools.pdt"> PHP Development Tools</a>.</p>				
