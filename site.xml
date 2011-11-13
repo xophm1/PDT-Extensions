@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/com.dubture.pdt.feature_1.0.0.201111021644.jar" id="com.dubture.pdt.feature" version="1.0.0.201111021644">
+   <feature url="features/com.dubture.pdt.feature_1.0.1.201111131633.jar" id="com.dubture.pdt.feature" version="1.0.1.201111131633">
       <category name="PDT Extensions"/>
    </feature>
    <category-def name="PDT Extensions" label="PDT Extensions">
