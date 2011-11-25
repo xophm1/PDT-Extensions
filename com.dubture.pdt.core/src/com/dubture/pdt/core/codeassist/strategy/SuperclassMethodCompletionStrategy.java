@@ -13,6 +13,7 @@ import org.eclipse.dltk.core.IMethod;
 import org.eclipse.dltk.core.IModelElement;
 import org.eclipse.dltk.core.ISourceModule;
 import org.eclipse.dltk.core.IType;
+import org.eclipse.dltk.core.ModelException;
 import org.eclipse.dltk.core.index2.search.ISearchEngine.MatchRule;
 import org.eclipse.dltk.core.search.IDLTKSearchScope;
 import org.eclipse.dltk.core.search.SearchEngine;
@@ -69,6 +70,7 @@ public class SuperclassMethodCompletionStrategy extends
 			return;
 		}
 		
+		
 		IDLTKSearchScope scope = SearchEngine.createSearchScope(module.getScriptProject());		
 		SourceType type = (SourceType) element;
 		SourceRange range = getReplacementRange(context);
@@ -84,8 +86,18 @@ public class SuperclassMethodCompletionStrategy extends
 				for (IMethod method : superType.getMethods()) {												
 					if (CodeAssistUtils.startsWithIgnoreCase(method.getElementName(), prefix) && 
 							(!PHPFlags.isPrivate(method.getFlags())) ) {
-												
-						reporter.reportMethod(method, "", range, new PDTCompletionInfo(module));
+
+						IMethod existing = module.getMethod(method.getElementName());
+						
+						try {
+							module.getElementAt(existing.getSourceRange().getOffset());
+						} catch (ModelException e) {
+							
+							// non-existent method
+							reporter.reportMethod(method, "", range, new PDTCompletionInfo(module));
+						}
+													
+						
 					}
 				}				
 			}

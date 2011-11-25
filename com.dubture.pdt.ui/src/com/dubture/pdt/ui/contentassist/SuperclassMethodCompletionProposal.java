@@ -22,6 +22,7 @@ import org.eclipse.php.internal.ui.editor.contentassist.PHPCompletionProposal;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.texteditor.ITextEditor;
 
+import com.dubture.pde.formatter.core.ast.Formatter;
 import com.dubture.pdt.ui.codemanipulation.CodeGeneration;
 
 /**
@@ -108,7 +109,14 @@ public class SuperclassMethodCompletionProposal extends PHPCompletionProposal {
 
 					String code = "";
 					code += CodeGeneration.getMethodStub(method.getElementName(), method, indent, TextUtilities.getDefaultLineDelimiter(document), true);
-					return code;
+					
+					IDocument tempDoc = Formatter.createPHPDocument();
+					Formatter formatter = new Formatter();					
+					tempDoc.set(code);					
+					formatter.format(tempDoc);
+					
+					System.err.println(tempDoc.get());
+					return tempDoc.get();
 
 				}
 			}		
@@ -117,7 +125,7 @@ public class SuperclassMethodCompletionProposal extends PHPCompletionProposal {
 
 			e.printStackTrace();
 		}		
-		
+
 		return "";
 	}
 }

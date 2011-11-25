@@ -153,10 +153,12 @@ public class Formatter implements IContentFormatter {
 			error(file, "Could not format (ast error)");
 			return;
 		}
+		/*
 		if (file == null) { // preview for preferences
 			document.set(result);
 			return;
 		}
+		*/
 		if (document.get().equals(result)) {
 			return;
 		}
@@ -174,7 +176,7 @@ public class Formatter implements IContentFormatter {
 			document.set(result);
 			
 			
-			if (createMarker) {
+			if (createMarker && file != null) {
 				try {
 					file.deleteMarkers(FormatterPlugin.MARKER_ID, false,
 							IResource.DEPTH_INFINITE);
@@ -182,7 +184,10 @@ public class Formatter implements IContentFormatter {
 				}
 			}
 		} else {
-			error(file, "Could not format (verify error)");
+			if (file != null)
+				error(file, "Could not format (verify error)");
+			
+			System.err.println("error formatting file");
 		}		
 	}
 

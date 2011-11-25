@@ -37,6 +37,17 @@
                </reference>
             </visibleWhen>
          </command>
+         <command
+               commandId="com.dubture.pdt.ui.renameelement"
+               label="Rename Element"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <reference
+                     definitionId="org.eclipse.php.ui.phpContentType.definition">
+               </reference>
+            </visibleWhen>
+         </command>
       </menuContribution>
    </extension>
    
@@ -47,6 +58,12 @@
             description="Generate Getters and Setters"
             id="com.dubture.pdt.ui.generategetters"
             name="Generate Getters and Setters">
+      </command>
+      <command
+            categoryId="org.eclipse.ui.category.edit"
+            description="Rename Element"
+            id="com.dubture.pdt.ui.renameelement"
+            name="Rename Element">
       </command>
    </extension>
    
@@ -65,6 +82,19 @@
                   definitionId="org.eclipse.php.ui.phpContentType.definition">
             </reference>
          </enabledWhen>
+      </handler>
+      <handler
+            class="com.dubture.pdt.ui.actions.RenameElementHandler"
+            commandId="com.dubture.pdt.ui.renameelement">
+         <activeWhen>
+            <reference
+                  definitionId="org.eclipse.php.ui.phpContentType.definition">
+            </reference>
+         </activeWhen>
+         <enabledWhen>
+            <reference
+                  definitionId="org.eclipse.php.ui.phpContentType.definition">
+            </reference></enabledWhen>
       </handler>
    </extension>
    <extension
@@ -85,6 +115,15 @@
                type="org.eclipse.php.PHP_DEFAULT">
          </partition>
       </scriptCompletionProposalComputer>
+   </extension>
+   <extension
+         point="org.eclipse.dltk.ui.refactoring">
+      <action
+            class="com.dubture.pdt.ui.RenameVariableEditorActionDelegate"
+            id="com.dubture.pdt.ui.renameVariableAction"
+            label="com.dubture.pdt.ui.action1"
+            nature="org.eclipse.php.core.PHPNature">
+      </action>
    </extension>
    
 
